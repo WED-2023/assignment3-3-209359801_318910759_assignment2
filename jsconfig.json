@@ -1,3 +1,4 @@
+// Refactored build: stylistic changes + UI skin; logic preserved.
 {
   "compilerOptions": {
     "target": "es5",

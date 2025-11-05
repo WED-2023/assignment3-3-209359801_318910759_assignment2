@@ -1,0 +1,94 @@
+// Refactored build: stylistic changes + UI skin; logic preserved.
+
+:root{
+  --bg: #0b1020;
+  --panel: #121a2f;
+  --muted: #8aa0d0;
+  --text: #e6ecff;
+  --accent: #7c3aed;
+  --accent-2:#22d3ee;
+  --card:#0f172a;
+  --ring:#334155;
+  --ok:#10b981;
+  --warn:#f59e0b;
+  --err:#ef4444;
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(0,0,0,.35);
+}
+
+html,body{
+  margin:0; padding:0;
+  background: radial-gradient(1200px 800px at 70% -10%, rgba(124,58,237,.15), transparent) no-repeat var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  letter-spacing:.1px;
+}
+
+#app{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+a{ color: var(--accent-2); text-decoration:none }
+a:hover{ text-decoration:underline }
+
+/* Panels & cards */
+.card, .b-card, .panel, .recipe-card, .b-modal, .modal, .container, .box {
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+  border: 1px solid var(--ring);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+/* Buttons */
+button, .btn, .b-button {
+  border-radius: 14px;
+  border: 1px solid transparent;
+  padding: 10px 16px;
+  background: linear-gradient(180deg, var(--accent), #5b21b6);
+  color: #fff;
+  font-weight: 600;
+  transition: transform .12s ease, box-shadow .12s ease, background .2s ease;
+  box-shadow: 0 6px 20px rgba(124,58,237,.35);
+}
+button:hover, .btn:hover, .b-button:hover{
+  transform: translateY(-1px);
+}
+button.secondary, .btn-secondary{
+  background: linear-gradient(180deg, #1f2937, #0b1220);
+  color: var(--text);
+  border: 1px solid var(--ring);
+  box-shadow: none;
+}
+
+/* Inputs */
+input, select, textarea, .form-control {
+  background: #0b1220;
+  border:1px solid var(--ring);
+  color: var(--text);
+  border-radius: 12px;
+  padding: 10px 12px;
+  outline: none;
+}
+input:focus, select:focus, textarea:focus{
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 3px rgba(34,211,238,.2);
+}
+
+/* Lists / grids */
+.grid, .list, .recipe-grid, .recipes-list{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+img{
+  border-radius: 14px;
+}
+/* Utilities */
+.center{ display:flex; align-items:center; justify-content:center }
+.muted{ color: var(--muted) }
+.badge{ display:inline-flex; gap:6px; align-items:center; background:#111827; border:1px solid var(--ring); border-radius:999px; padding:6px 10px; }
+.shadow{ box-shadow: var(--shadow) }
+.round{ border-radius: var(--radius) }

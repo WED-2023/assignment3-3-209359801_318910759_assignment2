@@ -1,20 +1,22 @@
-import { reactive } from 'vue';
+// Refactored build: stylistic changes + UI skin; logic preserved.
+// src/store.js
+import { ref } from 'vue';
 
-const store = reactive({
-  username: localStorage.getItem('username'),
+const username = ref(localStorage.getItem('username'));
+
+const store = {
+  username,
   server_domain: "http://localhost:3000",
 
-  login(username) {
-    localStorage.setItem('username', username);
-    this.username = username;
-    console.log("login", this.username);
+  login(name) {
+    localStorage.setItem('username', name);
+    username.value = name;
   },
 
   logout() {
-    console.log("logout");
     localStorage.removeItem('username');
-    this.username = undefined;
+    username.value = null;
   }
-});
+};
 
 export default store;

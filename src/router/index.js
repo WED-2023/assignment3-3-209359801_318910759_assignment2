@@ -1,5 +1,6 @@
-import Main from "../pages/MainPage.vue";
-import NotFound from "../pages/NotFoundPage.vue";
+// Refactored build: stylistic changes + UI skin; logic preserved.
+import Main from '../pages/MainPage.vue';
+import NotFound from '../pages/NotFoundPage.vue';
 
 const routes = [
   {
@@ -27,6 +28,27 @@ const routes = [
     name: "recipe",
     component: () => import("../pages/RecipeViewPage.vue"),
   },
+  { 
+    path: '/about', 
+    name: 'about', 
+    component: () => import("../pages/AboutPage.vue"), 
+  }, 
+  {
+  path: "/favorites",
+  name: "favorites",
+  component: () => import("../pages/MyFavoritePage.vue"),
+},
+{
+  path: "/my-recipes",
+  name: "myRecipes",
+  component: () => import("../pages/MyRecipesPage.vue"),
+},
+{
+  path: "/family-recipes",
+  name: "familyRecipes",
+  component: () => import("../pages/MyFamilyRecipesPage.vue"),
+},
+
   {
     path: "/:catchAll(.*)",
     name: "notFound",

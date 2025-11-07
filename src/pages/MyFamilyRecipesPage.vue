@@ -236,7 +236,9 @@ export default {
 .recipe-details li + li{ margin-top: .25rem; }
 
 
-h2{ font-weight: 800; color: #848892; }
+h2{ font-size: 5rem;
+  font-weight: 800; 
+  color: #848892;  }
 
 .recipe-image[src*="placeholder-recipe.jpg"]{
   object-fit: contain;

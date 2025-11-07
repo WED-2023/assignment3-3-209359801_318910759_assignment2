@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <h1 class="title text-center mb-4">Recipe Search</h1>
+    <h1 class="title text-center mb-4"> Search Recipe </h1>
 
     <b-card class="p-4 mx-auto search-form mt-4">
       <b-form @submit.prevent="searchRecipes">
@@ -222,6 +222,7 @@ export default {
 
 <style scoped>
 h1 { 
+  font-size: 5rem;
   font-weight: 800; 
   color: #848892; 
 }

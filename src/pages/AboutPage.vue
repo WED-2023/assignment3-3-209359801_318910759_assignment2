@@ -9,7 +9,7 @@
     </p>
     <div class="mt-4">
       <h3 class="text-center mb-3">Previous course exercises (the space shooter game is amazing and we plan to improve it further)</h3>
-      <ul class="list-group list-group-flush mx-auto" style="max-width: 500px;">
+      <ul class="list-group list-group-flush mx-auto" style="max-width: 1000px;">
         <li class="list-group-item">
           <a href="https://wed-2023.github.io/209359801/" target="_blank">Exercise 1 - Yehonatan Segal</a>
         </li>
@@ -38,9 +38,12 @@ export default {
 
 <style scoped>
 h1 {
-  font-weight: 1000;
+  font-size: 5rem;
+  font-weight: 800; 
+  color: #848892; 
 }
 a {
+  font-weight: 800;
   color: #061322;
   text-decoration: none;
 }
@@ -48,3 +51,5 @@ a:hover {
   text-decoration: underline;
 }
 </style>
+
+

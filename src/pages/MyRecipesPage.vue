@@ -91,6 +91,7 @@ export default {
 
 <style scoped>
 h2 { 
+  font-size: 5rem;
   font-weight: 800; 
   color: #848892; 
 }

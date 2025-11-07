@@ -87,7 +87,7 @@ export default {
   font-weight: 600;
   font-size: 1.2rem;
   margin-bottom: 0.8rem;
-  border-bottom: 2px solid #007bff;
+  border-bottom: 2px solid #848892;
   padding-bottom: 0.3rem;
 }
 
@@ -103,7 +103,14 @@ export default {
 
 <style scoped>
 h1 { 
-  font-weight: 1000; 
+  font-size: 5rem;
+  font-weight: 800; 
+  color: #848892; 
+}
+
+h3 { 
+  font-size: 3rem;
+  font-weight: 800; 
   color: #848892; 
 }
 </style>

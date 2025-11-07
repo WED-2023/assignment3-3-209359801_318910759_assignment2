@@ -1,7 +1,6 @@
 <template>
   <div class="container py-4">
     <h2 class="text-center mb-4"> My Favorites Recipes</h2>
-    <!-- ❤️ -->
     <RecipePreviewList
       v-if="favorites.length > 0"
       :recipes="favorites"
@@ -15,13 +14,15 @@
 </template>
 
 <script>
+
 import RecipePreviewList from '../components/RecipePreviewList.vue';
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 
+
 export default {
   name: "FavoritesPage",
-  components: { RecipePreviewList },
+  components: {RecipePreviewList },
   setup() {
     const favorites = ref([]);
 
@@ -36,9 +37,9 @@ export default {
       }
     };
 
-    const handleFavoriteUpdate = (recipeId, isNowFavorite) => {
+    const handleFavoriteUpdate = (recipe_id, isNowFavorite) => {
       if (!isNowFavorite) {
-        favorites.value = favorites.value.filter(r => r.id !== recipeId);
+        favorites.value = favorites.value.filter(r => r.id !== recipe_id);
       }
     };
 
@@ -49,4 +50,12 @@ export default {
     return { favorites, handleFavoriteUpdate };
   }
 };
+
 </script>
+
+<style scoped>
+h2 { 
+  font-weight: 1000; 
+  color: #848892; 
+}
+</style>

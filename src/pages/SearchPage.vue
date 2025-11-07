@@ -199,21 +199,30 @@ export default {
 .form-floating-vue label {
   position: absolute;
   top: 0.65rem;
-  right: 0.75rem;
+  left: 0.75rem;  /* Changed from right to left */
   color: #777;
   pointer-events: none;
   transition: all 0.2s ease;
   font-size: 1rem;
+  direction: ltr;  /* Added for left-to-right text direction */
 }
+
 .form-floating-vue input:focus + label,
 .form-floating-vue input:not(:placeholder-shown) + label,
 .form-floating-vue select:focus + label,
 .form-floating-vue select:not([value=""]) + label {
   top: -0.6rem;
-  right: 0.65rem;
+  left: 0.65rem;  /* Changed from right to left */
   background: #fff;
   padding: 0 0.3rem;
   font-size: 0.8rem;
   color: #333;
+}
+</style>
+
+<style scoped>
+h1 { 
+  font-weight: 800; 
+  color: #848892; 
 }
 </style>

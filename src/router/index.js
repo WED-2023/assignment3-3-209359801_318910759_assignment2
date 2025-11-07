@@ -24,7 +24,7 @@ const routes = [
     component: () => import("../pages/SearchPage.vue"),
   },
   {
-    path: "/recipe/:recipeId",
+    path: "/recipe/:recipe_id",
     name: "recipe",
     component: () => import("../pages/RecipeViewPage.vue"),
   },

@@ -73,19 +73,19 @@ export default {
       try {
         await this.axios.post(
           `${this.$root.store.server_domain}/user/search`,
-          { recipeID: this.recipe.id },
+          { recipe_id: this.recipe.id },
           { withCredentials: true }
         );
       } catch (err) {
         console.error("Error marking as watched:", err);
       }
-      this.$router.push({ name: "recipe", params: { recipeId: this.recipe.id } });
+      this.$router.push({ name: "recipe", params: { recipe_id: this.recipe.id } });
     },
     async markAsFavorite() {
       try {
         await this.axios.post(
           `${this.$root.store.server_domain}/user/favorites`,
-          { recipeID: this.recipe.id },
+          { recipe_id: this.recipe.id },
           { withCredentials: true }
         );
         this.isFavorite = true;

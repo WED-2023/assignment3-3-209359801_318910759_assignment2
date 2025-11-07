@@ -49,15 +49,15 @@ export default {
       showNote.t = setTimeout(() => (note.value = ""), ms);
     };
 
-    const handleFavoriteUpdate = (recipeId, isNowFavorite) => {
-      const recipe = myRecipes.value.find(r => r.recipeID === recipeId);
+    const handleFavoriteUpdate = (recipe_id, isNowFavorite) => {
+      const recipe = myRecipes.value.find(r => r.recipe_id === recipe_id);
       if (recipe) {
         recipe.isFavoriteByUser = isNowFavorite;
       }
     };
 
-    const handleDeleteRecipe = async (recipeId) => {
-      myRecipes.value = myRecipes.value.filter(r => r.recipeID !== recipeId);
+    const handleDeleteRecipe = async (recipe_id) => {
+      myRecipes.value = myRecipes.value.filter(r => r.recipe_id !== recipe_id);
       showNote("Recipe removed from My Recipes ✅");
       await loadMyRecipes();
     };
@@ -86,5 +86,12 @@ export default {
   padding: .5rem .75rem;
   font-size: .95rem;
   margin-bottom: .75rem;
+}
+</style>
+
+<style scoped>
+h2 { 
+  font-weight: 800; 
+  color: #848892; 
 }
 </style>

@@ -34,8 +34,4 @@ export default {
   gap: 1rem;
   justify-content: center;
 }
-
-
-
-
 </style>

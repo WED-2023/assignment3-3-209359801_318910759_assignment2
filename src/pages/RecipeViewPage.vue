@@ -133,7 +133,7 @@ export default {
   async created() {
     try {
       let response = await this.axios.get(
-        this.$root.store.server_domain + "/recipes/search/" + this.$route.params.recipeId
+        this.$root.store.server_domain + "/recipes/search/" + this.$route.params.recipe_id
       );
 
       if (response.status !== 200) {

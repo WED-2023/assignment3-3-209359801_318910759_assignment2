@@ -100,3 +100,10 @@ export default {
   }
 }
 </style>
+
+<style scoped>
+h1 { 
+  font-weight: 1000; 
+  color: #848892; 
+}
+</style>

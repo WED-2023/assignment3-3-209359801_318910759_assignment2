@@ -98,7 +98,7 @@ export default {
         });
         familyRecipes.value = res.data.map((r, i) => ({
           ...r,
-          id: r.recipeID ?? r.id ?? i,
+          id: r.recipe_id ?? r.id ?? i,
           images: normalizeImages(r.image),
         }));
         console.log("images:", familyRecipes.value.map(r => r.images));
@@ -155,7 +155,6 @@ export default {
   transform: translateY(-2px);
   box-shadow: 0 14px 36px rgba(2, 29, 59, 0.08);
 }
-
 
 .recipe-content{
   display: grid;
@@ -238,7 +237,6 @@ export default {
 
 
 h2{ font-weight: 800; color: #848892; }
-
 
 .recipe-image[src*="placeholder-recipe.jpg"]{
   object-fit: contain;

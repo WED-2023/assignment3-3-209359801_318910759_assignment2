@@ -55,15 +55,12 @@
                 >
                 <router-link class="dropdown-link" :to="{ name: 'favorites' }" @click="closeDropdown">
                    My Favorites
-                   <!-- ❤️ -->
                 </router-link>
                 <router-link class="dropdown-link" :to="{ name: 'myRecipes' }" @click="closeDropdown">
                    My Recipes
-                    <!-- 📝 -->
                 </router-link>
                 <router-link class="dropdown-link" :to="{ name: 'familyRecipes' }" @click="closeDropdown">
                    My Family Recipes
-                    <!-- 👪 -->
                 </router-link>
 
                 </div>
@@ -76,7 +73,6 @@
             </b-nav-item>
             <b-nav-item @click="logout">
                Logout
-               <!-- 🚪 -->
             </b-nav-item>
           </template>
         </b-navbar-nav>

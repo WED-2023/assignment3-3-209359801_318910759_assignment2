@@ -183,3 +183,10 @@ export default {
 }
 
 </style>
+
+<style scoped>
+h2 { 
+  font-weight: 800; 
+  color: #848892; 
+}
+</style>

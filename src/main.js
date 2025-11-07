@@ -1,4 +1,3 @@
-// Refactored build: stylistic changes + UI skin; logic preserved.
 import { createApp, reactive } from 'vue';
 import App from './App.vue';
 import routes from './router/index';

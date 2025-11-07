@@ -1,4 +1,3 @@
-// Refactored build: stylistic changes + UI skin; logic preserved.
 export default [
   "Afghanistan",
   "Åland Islands",

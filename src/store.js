@@ -1,4 +1,3 @@
-// Refactored build: stylistic changes + UI skin; logic preserved.
 // src/store.js
 import { ref } from 'vue';
 

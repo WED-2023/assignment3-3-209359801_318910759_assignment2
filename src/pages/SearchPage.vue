@@ -165,7 +165,7 @@ export default {
 .container {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  max-width: 900px;
+  max-width: 1000px;
 }
 
 .search-form {
@@ -224,6 +224,6 @@ export default {
 h1 { 
   font-size: 5rem;
   font-weight: 800; 
-  color: #848892; 
+  color: #f0e8e8; 
 }
 </style>

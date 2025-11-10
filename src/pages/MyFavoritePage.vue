@@ -7,7 +7,7 @@
       title="Saved Recipes"
       @update-favorite="handleFavoriteUpdate"
     />
-    <div v-else class="text-center mt-3" style="color: #848892;">
+    <div v-else class="text-center mt-3" style="color: #f0e8e8;">
       No saved recipes at the moment.
     </div>
   </div>
@@ -57,6 +57,6 @@ export default {
 h2 { 
   font-size: 5rem;
   font-weight: 800; 
-  color: #848892; 
+  color: #f0e8e8; 
 }
 </style>

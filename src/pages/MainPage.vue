@@ -105,12 +105,12 @@ export default {
 h1 { 
   font-size: 5rem;
   font-weight: 800; 
-  color: #848892; 
+  color: #f0e8e8; 
 }
 
 h3 { 
   font-size: 3rem;
   font-weight: 800; 
-  color: #848892; 
+  color: #636060; 
 }
 </style>

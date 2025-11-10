@@ -1,4 +1,3 @@
-// Refactored build: stylistic changes + UI skin; logic preserved.
 import Main from '../pages/MainPage.vue';
 import NotFound from '../pages/NotFoundPage.vue';
 

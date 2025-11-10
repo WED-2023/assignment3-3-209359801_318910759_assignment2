@@ -1,10 +1,10 @@
 <template>
-  <div class="container mt-4" style="max-width: 500px;">
-    <h2 class="mb-4">Register</h2>
+  <div class="container mt-4 register-box" style="max-width: 500px;">
+    <h2 class="mb-4 text-center">Register</h2>
     <b-form @submit.prevent="handleRegister">
 
       <!-- Username -->
-      <b-form-group label="Username">
+      <b-form-group label="Username (3-8 letters)">
         <b-form-input
           v-model="bag.username"
           :bag="validations.username.$dirty ? !validations.username.$invalid : null"
@@ -70,7 +70,7 @@
       </b-form-group>
 
       <!-- Password -->
-      <b-form-group label="Password">
+      <b-form-group label="Password (5-10 characters, incl. 1 digit & 1 special char)">
         <b-form-input
           :type="showPassword ? 'text' : 'password'"
           v-model="bag.password"
@@ -99,7 +99,7 @@
         </b-form-invalid-feedback>
       </b-form-group>
 
-      <b-button type="submit" variant="success" class="w-100">Register</b-button>
+      <b-button type="submit" variant="primary" class="w-100">Register</b-button>
 
       <!-- Global error/success messages -->
       <div v-if="bag.submitError" class="mt-3 text-danger font-weight-bold">
@@ -245,5 +245,19 @@ export default {
 }
 .text-success {
   font-size: 1.1rem;
+}
+
+.register-box {
+  background-color: #ffffff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+</style>
+
+<style scoped>
+h2 { 
+  font-weight: 800; 
+  color: #848892; 
 }
 </style>

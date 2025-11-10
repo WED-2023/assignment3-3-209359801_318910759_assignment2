@@ -224,7 +224,7 @@ body {
   font-weight: 400;
   line-height: 1.8;
   color: #2c3e50;
-  background: url('~@/assets/back.png') no-repeat center center fixed;
+  background: url('~@/assets/back_1.jpg') no-repeat center center fixed;
   //  linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
   background-size: cover;
   background-attachment: fixed;

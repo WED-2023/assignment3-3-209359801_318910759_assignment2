@@ -1,4 +1,3 @@
-// Refactored build: stylistic changes + UI skin; logic preserved.
 module.exports = {
   root: true,
   env: {

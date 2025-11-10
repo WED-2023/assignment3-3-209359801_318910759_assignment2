@@ -13,7 +13,7 @@
         @delete-recipe="handleDeleteRecipe"
       />
     </div>
-    <div v-else class="text-center mt-4" style="color: #848892;">
+    <div v-else class="text-center mt-4" style="color: #f0e8e8;">
       You haven't created any recipes yet. Try adding one using the "New Recipe" button!
     </div>
   </div>
@@ -93,6 +93,6 @@ export default {
 h2 { 
   font-size: 5rem;
   font-weight: 800; 
-  color: #848892; 
+  color: #f0e8e8; 
 }
 </style>

@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div v-else class="text-center mt-4" style="color: #848892;">
+    <div v-else class="text-center mt-4" style="color: #f0e8e8;">
       No family recipes found. Please add at least three recipes related to your family
       <!-- 💖  -->
     </div>
@@ -238,7 +238,7 @@ export default {
 
 h2{ font-size: 5rem;
   font-weight: 800; 
-  color: #848892;  }
+  color: #f0e8e8;  }
 
 .recipe-image[src*="placeholder-recipe.jpg"]{
   object-fit: contain;

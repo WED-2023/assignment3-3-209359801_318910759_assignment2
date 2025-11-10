@@ -1,4 +1,3 @@
-// Refactored build: stylistic changes + UI skin; logic preserved.
 <template>
   <div class="recipe-list-container">
     <div class="recipe-grid">

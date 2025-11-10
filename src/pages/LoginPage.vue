@@ -171,7 +171,7 @@ export default {
   padding: 2rem;
   border-radius: 0.75rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  font-family: 'Heebo', sans-serif;
+  /* font-family: 'Heebo', sans-serif; */
 }
 .register-link {
   color: #0d6efd;

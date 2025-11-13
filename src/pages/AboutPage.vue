@@ -1,6 +1,6 @@
 <template>
   <h1 class="mb-4 text-center">About Our Project</h1>
-  <div class="container py-5">
+  <div class="container py-5">  
     <p class="lead text-center">
       The recipe search website was developed during the course "Web Development Environment" as a final project, which included the development of both server and client sides, as well as a database setup. The website allows searching for recipes by ID, creating new recipes, and more.
     </p>
@@ -40,14 +40,13 @@ export default {
 <style scoped>
 
 .container{
-  max-width: 950px;    /* מקסימום רוחב חדש — שנה לפי הצורך */
-  width: 92%;          /* רוחב יחסית למכשיר */
-  margin: 0 auto;
+  width: 90%;       
   background-color: #ffffff;
   padding: 2rem;
   border-radius: 0.75rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
+
 h1 {
   font-size: 5rem;
   font-weight: 800; 
@@ -56,7 +55,7 @@ h1 {
 a {
   font-size: 1.2rem;
   font-weight: 500;
-  color: #848892;
+  color: #030303;
   text-decoration: none;
 }
 a:hover {

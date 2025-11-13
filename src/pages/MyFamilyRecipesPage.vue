@@ -1,8 +1,6 @@
 <template>
-  <div class="container py-4" dir="ltr">
-    <h2 class="text-center mb-4"> My Family Recipes</h2>
-    <!-- 👨‍👩‍👧‍👦 -->
-
+  <h2 class="text-center mb-4"> My Family Recipes</h2>
+    
     <div v-if="familyRecipes.length">
       <div v-for="recipe in familyRecipes" :key="recipe.id" class="recipe-card mb-5">
         <div class="recipe-content">
@@ -42,11 +40,9 @@
       </div>
     </div>
 
-    <div v-else class="text-center mt-4" style="color: #f0e8e8;">
-      No family recipes found. Please add at least three recipes related to your family
-      <!-- 💖  -->
+    <div v-else class="text-center" style="color: #f0e8e8;">
+      <h4>No family recipes found. Please add at least three recipes related to your family</h4>
     </div>
-  </div>
 </template>
 
 <script>
@@ -139,9 +135,8 @@ export default {
 };
 </script>
 
-<style scoped>
 
-.container { max-width: 1100px; }
+<style scoped>
 
 .recipe-card{
   background: linear-gradient(180deg, #ffffff 0%, #fafafa 100%);
@@ -155,7 +150,6 @@ export default {
   transform: translateY(-2px);
   box-shadow: 0 14px 36px rgba(2, 29, 59, 0.08);
 }
-
 .recipe-content{
   display: grid;
   grid-template-columns: 220px 1fr;  
@@ -169,15 +163,12 @@ export default {
   .recipe-content{ grid-template-columns: 1fr; } 
 }
 
-
 .image-column{ width: 100%; }
 .image-carousel{
   display: flex;
   flex-direction: column;   
   gap: 12px;
 }
-
-
 .recipe-image{
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -192,8 +183,6 @@ export default {
   box-shadow: 0 10px 28px rgba(0,0,0,0.12);
   cursor: zoom-in;
 }
-
-
 .recipe-details{ text-align: left; min-width: 0; }
 .recipe-details .card-title{
   font-size: clamp(1.25rem, 1.8vw, 1.6rem);
@@ -205,7 +194,6 @@ export default {
 .recipe-details p,
 .recipe-details li{ color: #3c4858; }
 .recipe-details strong{ color: #2c3e50; font-weight: 800; }
-
 .recipe-details .author{
   display: inline-block;
   background: #ffe6ef;
@@ -226,7 +214,6 @@ export default {
   margin-top: .5rem;
   font-size: 1rem;
 }
-
 .recipe-details ul,
 .recipe-details ol{
   padding-inline-start: 1.2rem;
@@ -234,7 +221,6 @@ export default {
   line-height: 1.8;
 }
 .recipe-details li + li{ margin-top: .25rem; }
-
 
 h2{ font-size: 5rem;
   font-weight: 800; 

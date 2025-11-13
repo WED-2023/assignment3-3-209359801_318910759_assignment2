@@ -1,6 +1,6 @@
 <template>
-  <div class="container mt-5 login-container" style="max-width: 500px;" dir="ltr">
-    <h2 class="mb-4 text-center">Login</h2>
+  <h1 class="mb-4 text-center">Login</h1>
+  <div class="container mt-5 login-container" style="max-width: 1000px;" dir="ltr">
     <b-form @submit.prevent="login">
 
       <!-- Username -->
@@ -23,14 +23,14 @@
           type="password"
           v-model="bag.password"
           @input="hideLogoutMessage"
-          placeholder="Insert Password 🔒"
+          placeholder="Insert Password"
         />
         <b-form-invalid-feedback v-if="v$.password.$error">
           You must put Password!
         </b-form-invalid-feedback>
       </b-form-group>
 
-      <b-button type="submit" variant="primary" class="w-100">login</b-button>
+      <b-button type="submit" variant="info" class="w-100">login</b-button>
 
       <!-- Log Out -->
       <div
@@ -71,10 +71,8 @@
 
     <!-- Register link -->
     <div class="mt-3 text-center">
-      Want to register?
-      <router-link to="/register" class="register-link">
-        Press here!
-      </router-link>
+       Want to register?
+      <router-link to="/register" class="register-link"> Press here! </router-link>
     </div>
   </div>
 </template>
@@ -181,12 +179,13 @@ export default {
 .register-link:hover {
   text-decoration: underline;
 }
-
-</style>
-
-<style scoped>
 h2 { 
   font-weight: 800; 
   color: #848892; 
+}
+h1 {
+  font-size: 5rem;
+  font-weight: 800; 
+  color: #f0e8e8; 
 }
 </style>

@@ -1,11 +1,11 @@
 <template>
-  <div class="container">
-    <h1 class="title text-center mb-4"> Search Recipe </h1>
-
-    <b-card class="p-4 mx-auto search-form mt-4">
-      <b-form @submit.prevent="searchRecipes">
+  <h1 class="title text-center mb-4"> Search Recipe </h1>
+  <div class="container py-5 search-form" style="max-width: 1000px;">
+    
+      <b-form @submit.prevent="searchRecipes" >
         <!-- First row -->
         <b-row class="mb-3">
+
           <b-col md="6">
             <div class="form-floating-vue">
               <b-form-input
@@ -15,6 +15,7 @@
               <label>Recipe Name</label>
             </div>
           </b-col>
+
           <b-col md="3">
             <div class="form-floating-vue">
               <b-form-select
@@ -26,22 +27,24 @@
             </div>
           </b-col>
           <b-col md="3">
+
             <b-button
               variant="outline-secondary"
               size="sm"
               @click="showFilters = !showFilters"
               class="w-100"
-              style="height:38px;"
-            >
+              style="height:38px;">
               <b-icon icon="funnel" class="me-1"></b-icon>
               {{ showFilters ? 'Hide Advanced' : 'Advanced Filters' }}
             </b-button>
+
           </b-col>
         </b-row>
 
         <!-- Filters row -->
         <transition name="fade">
           <b-row v-show="showFilters" class="mb-3">
+
             <b-col md="4">
               <div class="form-floating-vue">
                 <b-form-select
@@ -52,6 +55,7 @@
                 <label>Cuisine</label>
               </div>
             </b-col>
+
             <b-col md="4">
               <div class="form-floating-vue">
                 <b-form-select
@@ -62,6 +66,7 @@
                 <label>Diet</label>
               </div>
             </b-col>
+
             <b-col md="4">
               <div class="form-floating-vue">
                 <b-form-select
@@ -72,19 +77,20 @@
                 <label>Intolerance</label>
               </div>
             </b-col>
+
           </b-row>
         </transition>
 
         <!-- Search button -->
         <b-row>
           <b-col>
-            <b-button type="submit" variant="primary" class="search-button w-100">
-              Search
-            </b-button>
+            <div class="text-center mt-3">
+              <b-button type="submit" variant="info" class="w-100"> Search </b-button>
+            </div>
           </b-col>
         </b-row>
+
       </b-form>
-    </b-card>
 
     <!-- Results -->
     <div v-if="recipes && recipes.length > 0" class="mt-4">
@@ -162,23 +168,17 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  max-width: 1000px;
-}
+
 
 .search-form {
-  max-width: 850px;
+  width: 100%;
   border: 1px solid #ddd;
   border-radius: 0.75rem;
+  padding: 2rem;
   background-color: #ffffff;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
-.search-button {
-  font-size: 1.1rem;
-}
 
 .filter-toggle-btn {
   font-size: 0.9rem;

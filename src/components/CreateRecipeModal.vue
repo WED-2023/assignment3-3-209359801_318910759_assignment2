@@ -9,6 +9,7 @@
     body-class="custom-modal-body"
   >
     <b-form @submit.prevent="submitRecipe">
+
       <!-- Recipe Name -->
       <b-form-group label="Recipe Name">
         <b-form-input
@@ -108,8 +109,8 @@
       </div>
 
       <div class="button-row">
-        <b-button variant="secondary" @click="onUpdateShow(false)">Cancel</b-button>
-        <b-button type="submit" variant="success">Save Recipe</b-button>
+        <b-button variant="danger" @click="onUpdateShow(false)">Cancel</b-button>
+        <b-button type="submit" variant="info">Save Recipe</b-button>
       </div>
     </b-form>
   </b-modal>
@@ -164,24 +165,29 @@ export default {
     };
 
     const submitRecipe = async () => {
+      console.log("Submitting recipe with data:", form);
       const valid = await v$.value.$validate();
-      if (!valid) return;
+      console.log("Validation result:", valid, v$.value);
+      // if (!valid) return;
 
       try {
         bag.successMessage = "";
         bag.submitError = "";
 
         const payload = { ...form };
-
-        await axios.post("http://localhost:3000/user/recipes/", payload, {
+        console.log("Payload to be sent:", payload);
+        let response = await axios.post("http://localhost:3000/user/recipes/", payload, {
           withCredentials: true,
         });
+        console.log("Recipe created successfully:", response.data);
 
         bag.successMessage = "Recipe saved successfully!";
-        setTimeout(() => {
-          emit("update:show", false);
-          router.push({ name: "myRecipes" });
-        }, 1500);
+        // setTimeout(() => {
+        //   emit("update:show", false);
+        //   router.push({ name: "myRecipes" });
+        // }, 1500);
+        emit("update:show", false);
+        router.push({ name: "myRecipes" });
       } catch (err) {
         console.error("Error creating recipe:", err?.response?.data || err.message || err);
         bag.submitError = "An error occurred while saving the recipe.";
@@ -227,8 +233,7 @@ export default {
 }
 
 .modal-header {
-  background: linear-gradient(90deg, #0d6efd, #6610f2);
-  color: white;
+  background: linear-gradient(90deg, #06bedf);
   font-weight: 600;
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;

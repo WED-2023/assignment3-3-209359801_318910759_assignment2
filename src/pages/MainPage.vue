@@ -1,8 +1,7 @@
 <template>
-  <div class="container py-4">
-    <h1 class="title text-center mb-4">Main Recipes Page</h1>
-
-    <div class="recipes-wrapper">
+  <h1 class="title text-center mb-4">Main Recipes Page</h1>
+  
+    <div class="recipes-wrapper" :class="{ 'one-column': isLoggedIn }">
       <!-- Login Section -->
       <div class="recipes-section" v-if="!isLoggedIn">
         <h4 class="mb-3 text-center">Welcome to Recipes Website</h4>
@@ -12,14 +11,13 @@
 
       <!-- Recipes Section -->
       <div class="recipes-section">
-        <h3 class="section-title">Recommended Recipes</h3>
+        <h4 class="mb-3 text-center">Recommended Recipes</h4>
         <RecipePreviewList :recipes="randomRecipes" />
         <div class="text-center mt-3">
-          <b-button variant="info" @click="loadMoreRandom">Load More Recipes</b-button>
+          <b-button variant="info" class="w-100" @click="loadMoreRandom">Load More Recipes</b-button>
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -64,24 +62,27 @@ export default {
 </script>
 
 <style scoped>
+
 .recipes-wrapper {
   display: flex;
   gap: 1rem;
   flex-wrap: nowrap;
   justify-content: center;
 }
-
 .recipes-section {
   flex: 0 0 48%;
   border: 1px solid #ddd;
   border-radius: 0.5rem;
-  padding: 0.75rem;
+  padding: 2rem;
   background-color: #fafafa;
   min-width: 300px;
   display: flex;
   flex-direction: column;
 }
-
+.one-column .recipes-section {
+  flex: 0 0 1000px;       
+  max-width: 1000px;
+}
 .section-title {
   text-align: center;
   font-weight: 600;
@@ -99,18 +100,14 @@ export default {
     flex: 1 1 100%;
   }
 }
-</style>
-
-<style scoped>
 h1 { 
   font-size: 5rem;
   font-weight: 800; 
   color: #f0e8e8; 
 }
-
-h3 { 
+/* h3 { 
   font-size: 3rem;
   font-weight: 800; 
   color: #636060; 
-}
+} */
 </style>

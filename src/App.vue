@@ -1,6 +1,7 @@
 <template>
   <div id="app" dir="ltr">
-    <b-navbar toggleable="lg" type="dark" variant="dark" class="main-navbar">
+    <!-- type="dark" variant="dark" -->
+    <b-navbar toggleable="lg" type="dark" class="main-navbar">
       <!-- Brand -->
       <b-navbar-brand :to="{ name: 'main' }" class="brand">
         Recipes
@@ -140,21 +141,31 @@ export default {
 @import '@/scss/form-style.scss';
 
 #app {
-  font-family: 'Poppins', sans-serif; // Modern, clean font
+  font-family: 'Poppins', sans-serif;
   min-height: 100vh;
-  color: #b0b0c5; // Darker, richer text color
+  // color: #b0b0c5; // Darker, richer text color
 }
 
 /* Navbar */
-.main-navbar {
-  background: linear-gradient(90deg, #2c3e50 0%, #3498db 100%); // More professional gradient
-  padding: 0.7rem 1.8rem;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-}
+// .main-navbar {
+//   background: linear-gradient(90deg, #2c3e50 0%, #3498db 100%); // More professional gradient
+//   padding: 0.7rem 1.8rem;
+//   box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+// }
 
+.main-navbar {
+  background: linear-gradient(
+    90deg,
+    rgba(44, 62, 80, 0.2) 0%,
+    rgba(52, 152, 219, 0.2) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.7rem 1.8rem;
+}
 .brand {
   font-size: 1.4rem;
-  font-family: 'Montserrat', sans-serif; // Different font for brand
+  font-family: 'Montserrat', sans-serif;
   font-weight: 600;
   color: #ecf0f1 !important;
 }
@@ -174,7 +185,7 @@ export default {
   left: 0;
   width: 0%;
   height: 2px;
-  background-color: #3498db; // Highlight color
+  background-color: #3498db; 
   transition: width 0.3s ease;
 }
 

@@ -1,16 +1,17 @@
 <template>
-  <div class="container py-4">
-    <h2 class="text-center mb-4"> My Favorites Recipes</h2>
-    <RecipePreviewList
+  <h2 class="text-center mb-4"> My Favorites Recipes</h2>
+  <div class="favorite mb-3">
+        <RecipePreviewList
       v-if="favorites.length > 0"
       :recipes="favorites"
       title="Saved Recipes"
       @update-favorite="handleFavoriteUpdate"
     />
-    <div v-else class="text-center mt-3" style="color: #f0e8e8;">
-      No saved recipes at the moment.
+    <div v-else class="text-center" style="color: #f0e8e8;">
+      <h4> No saved recipes at the moment...</h4>
     </div>
-  </div>
+  </div>  
+
 </template>
 
 <script>
@@ -54,6 +55,9 @@ export default {
 </script>
 
 <style scoped>
+.favorite {
+  padding: 2rem;
+}
 h2 { 
   font-size: 5rem;
   font-weight: 800; 

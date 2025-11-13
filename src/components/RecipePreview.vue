@@ -1,12 +1,12 @@
 <template>
   <div @click="handleClick" class="card-link">
     <div class="recipe-card-horizontal d-flex align-items-center">
+
       <img
         v-if="recipe.image"
         :src="recipe.image"
         class="recipe-image-horizontal"
-        alt="Recipe image"
-      />
+        alt="Recipe image"/>
 
       <div class="recipe-details flex-grow-1 pe-3">
         <h5 class="card-title mb-2">{{ recipe.title }}</h5>
@@ -21,31 +21,34 @@
         </div>
 
         <div v-if="isLoggedIn">
+
+          <!-- Add to Favorites Button -->
           <b-button
             v-if="!isFavorite"
             variant="outline-danger"
             size="sm"
-            @click.stop="markAsFavorite"
-          >
-          Add to Favorites
+            @click.stop="markAsFavorite">
+            Add to Favorites ❤️
           </b-button>
+          
+          <!-- Remove from Favorites Button -->
           <b-button
             v-else
             variant="outline-secondary"
             size="sm"
-            @click.stop="removeFromFavorites"
-          >
-          Remove from Favorites
+            @click.stop="removeFromFavorites">
+            Remove from Favorites 🗑️
           </b-button>
 
+          <!-- Remove Recipe Button -->
           <b-button
             v-if="isShowDelete"
-            variant="outline-secondary"
+            variant="outline-dark"
             size="sm"
-            @click.stop="removeFromMyRecipe"
-          >          
-          Remove Recipe
+            @click.stop="removeFromMyRecipe">          
+            Remove Recipe 🗑️
           </b-button>
+
         </div>
       </div>
     </div>
@@ -107,9 +110,11 @@ export default {
         console.error("Error removing from favorites:", err);
       }
     },
+
     async removeFromMyRecipe() {
       try {
         await this.axios.delete(
+          console.log("Deleting recipe:", this),
           `${this.$root.store.server_domain}/user/recipes/${String(this.recipe.id).replace("U_", "")}`,
           { withCredentials: true }
         );
@@ -121,6 +126,7 @@ export default {
     }
   }
 };
+
 </script>
 
 <style scoped>

@@ -1,7 +1,5 @@
 <template>
-  <div class="container py-4">
-    <h2 class="text-center mb-4"> My Recipes</h2>
-
+  <h2 class="text-center mb-4"> My Recipes</h2>  
     <div v-if="note" class="note">{{ note }}</div>
 
     <div v-if="myRecipes.length">
@@ -13,10 +11,9 @@
         @delete-recipe="handleDeleteRecipe"
       />
     </div>
-    <div v-else class="text-center mt-4" style="color: #f0e8e8;">
+    <div v-else class="text-center mt-4" style="color: #848892;">
       You haven't created any recipes yet. Try adding one using the "New Recipe" button!
     </div>
-  </div>
 </template>
 
 <script>
@@ -87,9 +84,7 @@ export default {
   font-size: .95rem;
   margin-bottom: .75rem;
 }
-</style>
 
-<style scoped>
 h2 { 
   font-size: 5rem;
   font-weight: 800; 

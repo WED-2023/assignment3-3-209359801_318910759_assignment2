@@ -1,6 +1,6 @@
 <template>
-  <div class="container mt-4 register-box" style="max-width: 500px;">
-    <h2 class="mb-4 text-center">Register</h2>
+  <h2 class="mb-4 text-center">Register</h2>
+  <div class="container mt-4 register-box" style="max-width: 1000px;">
     <b-form @submit.prevent="handleRegister">
 
       <!-- Username -->
@@ -99,7 +99,7 @@
         </b-form-invalid-feedback>
       </b-form-group>
 
-      <b-button type="submit" variant="primary" class="w-100">Register</b-button>
+      <b-button type="submit" variant="info" class="w-100">Register</b-button>
 
       <!-- Global error/success messages -->
       <div v-if="bag.submitError" class="mt-3 text-danger font-weight-bold">
@@ -109,9 +109,11 @@
         {{ bag.successMessage }}
       </div>
 
-      <div class="mt-2">
+      <div class="mt-3 text-center" >
         Already have an account?
-        <router-link to="/login">Log in here</router-link>
+        <router-link to="/login" class="register-link">
+        Log in here!
+      </router-link>
       </div>
     </b-form>
   </div>
@@ -237,6 +239,14 @@ export default {
 </script>
 
 <style scoped>
+.register-link {
+  color: #0d6efd;
+  font-weight: 500;
+  text-decoration: none;
+}
+.register-link:hover {
+  text-decoration: underline;
+}
 .b-form-invalid-feedback {
   font-size: 0.9rem;
 }
@@ -253,11 +263,10 @@ export default {
   border-radius: 0.75rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
-</style>
-
-<style scoped>
 h2 { 
+  font-size: 5rem;
   font-weight: 800; 
-  color: #848892; 
+  color: #f0e8e8; 
 }
 </style>
+

@@ -34,6 +34,7 @@ export default {
           withCredentials: true,
         });
         myRecipes.value = res.data;
+        console.log("My Recipes loaded:", myRecipes.value);
       } catch (err) {
         console.error("Error loading my recipes:", err);
         showNote("Error loading recipes 😕");

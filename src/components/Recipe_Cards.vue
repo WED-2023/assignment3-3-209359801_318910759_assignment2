@@ -112,18 +112,22 @@ export default {
     },
 
     async removeFromMyRecipe() {
-      try {
-        await this.axios.delete(
-          console.log("Deleting recipe:", this),
-          `${this.$root.store.server_domain}/user/recipes/${String(this.recipe.id).replace("U_", "")}`,
-          { withCredentials: true }
-        );
-        this.$emit("delete-recipe", this.recipe.id);
-        this.$emit("refresh");
-      } catch (err) {
-        console.error("Error deleting recipe:", err);
-      }
-    }
+  try {
+  
+    const idWithPrefix = this.recipe.id ?? this.recipe;   
+    console.log("Deleting recipe:", idWithPrefix);
+
+    const numericId = String(idWithPrefix).replace("U_", ""); 
+    const url = `${this.$root.store.server_domain}/user/recipes/${numericId}`;
+
+    await this.axios.delete(url, { withCredentials: true });
+
+    this.$emit("delete-recipe", idWithPrefix);
+    this.$emit("refresh");
+  } catch (err) {
+    console.error("Error deleting recipe:", err);
+  }
+}
   }
 };
 

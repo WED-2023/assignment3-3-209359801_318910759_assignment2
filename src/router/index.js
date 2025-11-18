@@ -1,5 +1,5 @@
-import Main from '../pages/MainPage.vue';
-import NotFound from '../pages/NotFoundPage.vue';
+import Main from '../pages/Main_Page.vue';
+import NotFound from '../pages/Not_Found.vue';
 
 const routes = [
   {
@@ -10,42 +10,42 @@ const routes = [
   {
     path: "/register",
     name: "register",
-    component: () => import("../pages/RegisterPage.vue"),
+    component: () => import("../pages/Register.vue"),
   },
   {
     path: "/login",
     name: "login",
-    component: () => import("../pages/LoginPage.vue"),
+    component: () => import("../pages/Login.vue"),
   },
   {
     path: "/search",
     name: "search",
-    component: () => import("../pages/SearchPage.vue"),
+    component: () => import("../pages/Search.vue"),
   },
   {
     path: "/recipe/:recipe_id",
     name: "recipe",
-    component: () => import("../pages/RecipeViewPage.vue"),
+    component: () => import("../pages/Recipe_View.vue"),
   },
   { 
     path: '/about', 
     name: 'about', 
-    component: () => import("../pages/AboutPage.vue"), 
+    component: () => import("../pages/About.vue"), 
   }, 
   {
   path: "/favorites",
   name: "favorites",
-  component: () => import("../pages/MyFavoritePage.vue"),
+  component: () => import("../pages/My_Favorite.vue"),
 },
 {
   path: "/my-recipes",
   name: "myRecipes",
-  component: () => import("../pages/MyRecipesPage.vue"),
+  component: () => import("../pages/My_Recipes.vue"),
 },
 {
   path: "/family-recipes",
   name: "familyRecipes",
-  component: () => import("../pages/MyFamilyRecipesPage.vue"),
+  component: () => import("../pages/My_Family_Recipes.vue"),
 },
 
   {

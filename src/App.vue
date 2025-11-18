@@ -88,7 +88,7 @@
 
 <script>
 import { getCurrentInstance, ref, computed, onMounted, onUnmounted } from 'vue';
-import CreateRecipeModal from '@/components/CreateRecipeModal.vue';
+import CreateRecipeModal from '@/components/Create_Recipe.vue';
 import store from '@/store';
 import axios from 'axios';
 
@@ -228,7 +228,7 @@ body {
   font-weight: 400;
   line-height: 1.8;
   color: #2c3e50;
-  background: url('~@/assets/back_1.jpg') no-repeat center center fixed;
+  background: url('~@/assets/background.jpg') no-repeat center center fixed;
   //  linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
   background-size: cover;
   background-attachment: fixed;

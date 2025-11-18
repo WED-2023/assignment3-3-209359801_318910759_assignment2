@@ -16,7 +16,7 @@
 
 <script>
 
-import RecipePreviewList from '../components/RecipePreviewList.vue';
+import RecipePreviewList from '../components/Recipes_List.vue';
 import axios from 'axios';
 import { ref, onMounted } from 'vue';
 

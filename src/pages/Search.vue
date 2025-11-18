@@ -105,7 +105,7 @@
 </template>
 
 <script>
-import RecipePreviewList from '@/components/RecipePreviewList.vue';
+import RecipePreviewList from '@/components/Recipes_List.vue';
 
 export default {
   name: "SearchPage",

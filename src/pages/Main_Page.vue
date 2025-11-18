@@ -22,8 +22,8 @@
 
 <script>
 import { ref, onMounted, computed } from 'vue';
-import LoginPage from './LoginPage.vue';
-import RecipePreviewList from '../components/RecipePreviewList.vue';
+import LoginPage from './Login.vue';
+import RecipePreviewList from '../components/Recipes_List.vue';
 import axios from 'axios';
 import store from '@/store';
 

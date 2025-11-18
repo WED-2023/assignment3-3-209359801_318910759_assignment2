@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import RecipePreview from './RecipePreview.vue';
+import RecipePreview from './Recipe_Cards.vue';
 export default {
   name: "RecipePreviewList",
   components: { RecipePreview },

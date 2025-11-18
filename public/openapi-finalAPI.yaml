@@ -1,14 +1,19 @@
 openapi: 3.0.3
 servers:
-  # Added by API Auto Mocking Plugin
-  # Added by API Auto Mocking Plugin
-  # Added by API Auto Mocking Plugin
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/bengutionuneversity/demo/1.0.0
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/bgu-ea6/APIProject/1.0.0
-  - description: SwaggerHub API Auto Mocking
-    url: https://virtserver.swaggerhub.com/bgu-ea6/RecepiesAPI/1.0.0
+
+  # - description: SwaggerHub API Auto Mocking
+  #   url: https://virtserver.swaggerhub.com/bengutionuneversity/demo/1.0.0
+  # - description: SwaggerHub API Auto Mocking
+  #   url: https://virtserver.swaggerhub.com/bgu-ea6/APIProject/1.0.0
+  # - description: SwaggerHub API Auto Mocking
+  #   url: https://virtserver.swaggerhub.com/bgu-ea6/RecepiesAPI/1.0.0
+
+  servers:
+  - url: http://localhost:3000
+    description: Local dev
+  - url: https://virtserver.swaggerhub.com/bengutionuneversity/demo/1.0.0
+    description: SwaggerHub API Auto Mocking
+
 info:
   description: This is an API for our recepies website.
   version: "1.0.0"
@@ -27,6 +32,8 @@ tags:
     description: Operations about personal recipes management.
 paths:
   
+
+  # Authentication: 
   /Register:
     post:
       tags:
@@ -48,6 +55,7 @@ paths:
           description: Invalid input
         '409':
           description: User already exists
+
   /Login:
     post:
       tags:
@@ -65,7 +73,7 @@ paths:
                 username:
                   type: string
                   description: The username of the user logging in.
-                  example: johndoe
+                  example: OmerOnn
                 password:
                   type: string
                   description: The password for the user's account.
@@ -85,14 +93,14 @@ paths:
                   username:
                     type: string
                     description: The username of the logged-in user
-                    example: johndoe123
+                    example: OmerOnn
                   profile:
                     type: object
                     description: The user's profile information
                     example:
-                      firstName: John
-                      lastName: Doe
-                      email: johndoe@example.com
+                      firstName: Omer
+                      lastName: Onn
+                      email: OmerOnn@example.com
                       personal_recipes_created:
                         - Recipe1
                         - Recipe2
@@ -103,6 +111,7 @@ paths:
           description: Invalid input or credentials
         '401':
           description: Unauthorized - invalid credentials or expired session
+
   /Logout:
     post:
       tags:
@@ -115,30 +124,9 @@ paths:
           description: logout succeeded
         '400':
           description: User not loged-in
-  /isLoggedIn:
-    get:
-      summary: Check if the user is currently logged in
-      tags:
-        - home
-      responses:
-        '200':
-          description: Login status of the user
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  isLoggedIn:
-                    type: boolean
-                    description: Whether the user is logged in or not
-                    example: true
-                  username:
-                    type: string
-                    description: The username of the logged-in user (only if logged in)
-                    example: "johndoe"
-        '500':
-          description: Internal server error
-          
+
+
+# recipes: 
   /recipes:
     get:
       tags:
@@ -161,34 +149,7 @@ paths:
                   $ref: '#/components/schemas/Recipe'
         '500':
           description: Server error while retrieving recipes
-  /recipes/{recipeId}:
-    get:
-      tags:
-        - recipe
-      summary: Get a specific recipe (detailed information)
-      operationId: getFullRecipe
-      description: Get a specific recipe with its full detailed information.
-      parameters:
-        - name: recipeId
-          in: path
-          required: true
-          description: ID of the recipe to retrieve
-          schema:
-            type: integer
-      responses:
-        '200':
-          description: A list of all recipes
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Recipe'
-                description: |
-                  For authenticated users, each recipe includes additional information such as whether it was viewed or marked as a favorite.  
-                  For unauthenticated users, only general preview data is returned.
-        '404':
-          description: Recipe not found
+
   /recipes/search:
     get:
       tags:
@@ -197,7 +158,7 @@ paths:
       operationId: searchRecipes
       description: |
         Search for recipes by name with optional filters for cuisine, diet, and intolerance. 
-        Results can be limited in number. Not supported on U_[ID] (user's recipes)! Only spooncular catalog.
+        Results can be sorted and limited in number. Not supported on U_[ID] (user's recipes)! Only spooncular catalog.
       parameters:
         - name: query
           in: query
@@ -214,6 +175,14 @@ paths:
             type: integer
             enum: [5, 10, 15]
             default: 5
+        - name: sort
+          in: query
+          description: Sort results by preparation_time or popularity
+          required: false
+          schema:
+            type: string
+            enum: [preparation_time, popularity]
+            example: popularity
         - name: cuisine
           in: query
           description: Filter results by cuisine (e.g., Italian, Mexican)
@@ -253,6 +222,87 @@ paths:
         '404':
           description: No recipes found matching the criteria
 
+  /recipes/search/{recipeId}:
+    get:
+      tags:
+        - recipe
+      summary: Get a specific recipe (detailed information)
+      operationId: getFullRecipe
+      description: Get a specific recipe with its full detailed information.
+      parameters:
+        - name: recipeId
+          in: path
+          required: true
+          description: ID of the recipe to retrieve
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: A list of all recipes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Recipe'
+                description: |
+                  For authenticated users, each recipe includes additional information such as whether it was viewed or marked as a favorite.  
+                  For unauthenticated users, only general preview data is returned.
+        '404':
+          description: Recipe not found
+    
+  /recipes/LastSearched:
+    get:
+      summary: Get last searched recipes preview for the current user
+      description: Returns a list of recipe previews that the current logged-in user has recently searched for.
+      tags:
+        - recipe
+      responses:
+        '200':
+          description: A list of recently searched recipe previews
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Recipe'
+        '401':
+          description: Unauthorized - the user is not logged in
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: "Unauthorized: user not found"
+        '500':
+          description: Internal Server Error
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: An unexpected error occurred
+
+  /recipes/like/{recipeID}:
+    post:
+      summary: Increase likes for a recipe
+      description: Increases the number of likes for the recipe with the specified ID. Only accessible to logged-in users. Note - you can like a spooncular recipe as well as user's recipes. If you want to like user's recipe make sure to add U_[ID] so we can know which specific recipe you mean. 
+      tags:
+        - recipe
+      parameters:
+        - name: recipeID
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The ID of the recipe to like
+      responses:
+        '200':
+          description: Like was successfully added
+        '401':
+          description: Unauthorized – user is not logged in
+        '500':
+          description: Server error
+
+# user: 
   /user/recipes:
     get:
       tags: 
@@ -292,6 +342,7 @@ paths:
           description: Invalid recipe details
         '401':
           description: 'Unauthorized: user not found'
+
   /user/recipes/{recipeId}:
     delete:
       tags:
@@ -306,7 +357,7 @@ paths:
           description: The unique ID of the recipe to delete.
           schema:
             type: string
-            example: U_123
+            example: 1
       responses:
         '200':
           description: Recipe deleted successfully
@@ -316,54 +367,7 @@ paths:
           description: Recipe not found or doesn't belong to the user
         '400':
           description: Invalid recipe ID format
-  
-  /user/watch:
-    post:
-      tags:
-        - user
-      summary: Mark a recipe as watched by current session user. Please if you want to add a user's recipes to watch - add a U_[id] next to it.
-      operationId: markWatchedRecipe
-      description: Marks a recipe as watched by the current session user.
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - recipeId
-              properties:
-                recipeId:
-                  type: integer
-                  description: ID of the recipe to mark as watched.
-                  example: 125 or U_125
-      responses:
-        '200':
-          description: Recipe marked as watched
-        '404':
-          description: Recipe not found
-        '401':
-          description: "Unauthorized: user not found"
 
-    get:
-      tags:
-        - user
-      summary: Get 3 watched recipes by current user
-      operationId: getWatchedRecipe
-      description: Get 3 watched recipes by current user
-      responses:
-        '200':
-          description: A list of up to 3 watched recipes by the current user.
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/Recipe'
-        '404':
-          description: No watched recipes found for the user.
-        '401':
-          description: 'Unauthorized: user not found'
   /user/favorites:
     post:
       tags:
@@ -378,12 +382,12 @@ paths:
             schema:
               type: object
               required:
-                - recipeId
+                - recipe_id
               properties:
-                recipeId:
+                recipe_id:
                   type: integer
                   description: Internal identifier of the recipe to add.
-                  example: "U_12345 or 5684"
+                  example: "638893"
       responses:
         '200':
           description: Recipe added to favorites
@@ -412,6 +416,7 @@ paths:
           description: 'Unauthorized: user not found'
         '404':
           description: No favorites found for the user
+
   /user/favorites/{recipeId}:
     delete:
       tags:
@@ -436,6 +441,7 @@ paths:
           description: Recipe not found or doesn't favorited by the user
         '400':
           description: Invalid recipe ID format
+
   /user/recipes/family:
     get:
       tags: 
@@ -457,49 +463,7 @@ paths:
         '404':
           description: No family recipes found for this user
 
-  /check-username:
-    get:
-      summary: Check username availability
-      description: Checks if a given username already exists in the database.
-      tags:
-        - Users
-      parameters:
-        - in: query
-          name: username
-          required: true
-          schema:
-            type: string
-          description: The username to check for availability
-      responses:
-        '200':
-          description: Username check succeeded
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  exists:
-                    type: boolean
-                    description: Indicates if the username already exists
-                  success:
-                    type: boolean
-                    example: true
-        '400':
-          description: Username parameter is missing
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Username is required
-                  success:
-                    type: boolean
-                    example: false
-        '500':
-          description: Internal server error
-
+# Schemas:      
 components:
   schemas:
     Recipe:
@@ -574,17 +538,18 @@ components:
         - country
         - email
       properties:
-        userID:
-          type: integer
-          description: Unique identifier (internal in the system's DB) for the user. 
-          example: 50 
+        # userID:
+        #   type: integer
+        #   description: Unique identifier (internal in the system's DB) for the user. 
+        #   example: 1
+
         username:
           type: string
           description: Unique identifier for the user. It should be a string containing only letters
           minLength: 3
           maxLength: 8
-          example: johndoe
-          
+          example: OmerOnn
+
         password:
           type: string
           description: Password for the user account. It must be at least 5 characters long and contain at least one letter, one number and one special key.
@@ -596,24 +561,25 @@ components:
         firstname:
           type: string
           description: User's first name
-          example: John
+          example: Omer
         
         lastname:
           type: string
           description: User's last name
-          example: Doe
+          example: Onn
         
         email:
           type: string
           format: email
           description: User's email address. Must be a valid email format.
-          example: johndoe@example.com
+          example: OmerOnn@example.com
           
         country:
           type: string
           description: User's country
           example: Israel
           
+
     user_favorited_recipes:
       type: object
       properties:
@@ -626,6 +592,7 @@ components:
       required:
         - userID
         - recipeID
+  
 
     FamilyRecipe:
       type: object
@@ -692,3 +659,16 @@ components:
           type: string
           format: date-time
           example: 2025-05-29T12:00:00Z
+
+    RecipeLikes:
+      type: object
+      required:
+        - recipeID
+        - likes
+      properties:
+        recipeID:
+          type: integer
+          example: 101
+        likes:
+          type: integer
+          example: 17

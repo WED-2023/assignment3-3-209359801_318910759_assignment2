@@ -143,15 +143,8 @@ export default {
 #app {
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
-  // color: #b0b0c5; // Darker, richer text color
 }
 
-/* Navbar */
-// .main-navbar {
-//   background: linear-gradient(90deg, #2c3e50 0%, #3498db 100%); // More professional gradient
-//   padding: 0.7rem 1.8rem;
-//   box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-// }
 
 .main-navbar {
   background: linear-gradient(
